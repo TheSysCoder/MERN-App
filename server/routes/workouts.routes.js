@@ -3,26 +3,21 @@ import express from "express";
 
 const router = express.Router();
 
+// import controller
+import {
+  createWorkout,
+  getWorkout,
+  getsingleWorkout,
+} from "../controllers/workout.controller.js";
+
 // get all workouts
-router.get("/", (req, res, next) => {
-  res.json({
-    message: "Get all workouts",
-  });
-});
+router.get("/", getWorkout);
 
 // get single workouts
-router.get("/:id", (req, res, next) => {
-  res.json({
-    message: "Get a single workouts",
-  });
-});
+router.get("/:id", getsingleWorkout);
 
 // post workout
-router.post("/", (req, res, next) => {
-  res.json({
-    message: "Post new workout",
-  });
-});
+router.post("/", createWorkout);
 
 // Patch workout
 router.patch("/:id", (req, res, next) => {
